@@ -2,9 +2,7 @@
 NOTE: DO NOT RUN MANY TIMES IN A ROW, GOOGLE HAS A RATE LIMIT ON 
 HOW MANY TIMES THIS CAN BE RUN. IF THERE IS AN ERROR, WAIT 10-15 
 MINS/OR CHANGE YOUR IP ADDRESS AND RUN AGAIN
-NOTE: Code may run longer then usual. If it does not run the csv 
-file is in the folder
-
+NOTE: Code may run longer then usual. 
 
 This file collects data from Google trends using pytrends libary. 
 The data collected has been about trend searches of popular climbing 
@@ -22,6 +20,9 @@ from pytrends.request import TrendReq
 import time
 
 pd.set_option('future.no_silent_downcasting', True)
+import os 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
 
 #Connect to Google Trends
 
@@ -51,12 +52,14 @@ for i in Key_Words:
         else:
             Trends_df = pd.concat([Trends_df,individual_word] , axis=1)
     
-    time.sleep(10)
+    time.sleep(12)
     
 
+
+print('CSV saved successfully')
 #Save csv file 
-    
-Trends_df.to_csv('Google_Trends_Over_Time.csv')  
+
+Trends_df.to_csv('../Data/Google_Trends_Over_Time.csv')  
 
 
     

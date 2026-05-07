@@ -13,8 +13,12 @@ how the climbing gym openings have progressed over time
 
 import pandas as pd
 import matplotlib.pyplot as plt
+import os 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
+
  
-gyms = pd.read_excel('Gym_Locations_RAW_FILE.xlsx')
+gyms = pd.read_excel('../Data/Gym_Locations_RAW_FILE.xlsx')
 
 
 
@@ -47,7 +51,8 @@ years = list(all_years)
 # PLOT - Area Chart
 #############################################################################
 
-plt.figure(figsize=(13, 7))
+plt.figure(figsize=(13, 8), facecolor='#f7f4ef')
+plt.gca().set_facecolor('#f7f4ef')
 plt.fill_between(years, 0, both,                 alpha=0.6, color='#E9C46A', label='Both (Roped + Bouldering)')
 plt.fill_between(years, both, both + bouldering, alpha=0.6, color='#2A9D8F', label='Bouldering Only')
  
@@ -65,8 +70,10 @@ plt.xlabel('Year', fontsize=10)
 plt.ylabel('Total Cumulative Gyms Opened', fontsize=10)
 plt.ylim(0, None)
 plt.legend(fontsize=9, loc='upper left')
+plt.gca().spines['top'].set_visible(False)
+plt.gca().spines['right'].set_visible(False)
 plt.tight_layout()
 
 #Save figure in folder
 
-plt.savefig('Plots/Area_Chart.png', dpi=150)
+plt.savefig('../Plots/Area_Chart.png', dpi=150)

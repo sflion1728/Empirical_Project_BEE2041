@@ -15,8 +15,9 @@
     --font-display: 'Playfair Display', Georgia, serif;
     --font-body: 'Source Serif 4', Georgia, serif;
     --font-ui: 'DM Sans', sans-serif;
-    --col-width: 680px;
+    --col-width: 900px;
     --transition: 0.25s ease;
+    --navbar-height: 52px;
 }
 
 /* ===========================
@@ -29,8 +30,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 70px;
+    scroll-behavior: auto; /* handled by JS for offset */
 }
 
 body {
@@ -40,6 +40,7 @@ body {
     font-size: 18px;
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
+    padding-top: var(--navbar-height);
 }
 
 a {
@@ -64,36 +65,40 @@ img {
     font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    padding: 0.45rem 1.5rem;
+    padding: 0.45rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 /* ===========================
    NAVBAR
 =========================== */
 .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
     background: var(--bg);
     border-bottom: 2px solid var(--text);
-    padding: 0 1.5rem;
+    padding: 0;
     transition: box-shadow var(--transition);
 }
 
 .navbar.scrolled {
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
 
 .nav-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    height: 52px;
+    width: 100%;
+    height: var(--navbar-height);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 3rem;
 }
 
 .nav-logo {
@@ -103,31 +108,74 @@ img {
     color: var(--text);
     letter-spacing: -0.01em;
     flex-shrink: 0;
+    transition: color var(--transition);
 }
 
+.nav-logo:hover {
+    color: var(--accent);
+}
+
+/* ===========================
+   NAV LINKS - AESTHETIC
+=========================== */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 0;
+}
+
+.nav-links li {
+    position: relative;
 }
 
 .nav-links a {
     font-family: var(--font-ui);
     font-size: 0.72rem;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-muted);
+    display: block;
+    padding: 0.4rem 1.2rem;
+    position: relative;
     transition: color var(--transition);
-    padding-bottom: 2px;
-    border-bottom: 1px solid transparent;
+}
+
+/* Animated underline on hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 1.2rem;
+    right: 1.2rem;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+    transform-origin: left;
 }
 
 .nav-links a:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
+    color: var(--text);
 }
 
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Active state */
+.nav-links a.active {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.nav-links a.active::after {
+    transform: scaleX(1);
+}
+
+/* ===========================
+   MOBILE TOGGLE
+=========================== */
 .nav-toggle {
     display: none;
     background: none;
@@ -142,9 +190,9 @@ img {
    ARTICLE WRAPPER
 =========================== */
 .article-wrapper {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 3rem;
 }
 
 /* ===========================
@@ -152,7 +200,30 @@ img {
 =========================== */
 .article-header {
     padding: 3.5rem 0 2rem;
+}
+
+.header-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
     max-width: var(--col-width);
+}
+
+.header-text {
+    flex: 1;
+}
+
+.header-image {
+    width: 220px;
+    flex-shrink: 0;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.header-image img {
+    width: 100%;
+    height: auto;
+    background: transparent;
 }
 
 .article-category {
@@ -186,6 +257,7 @@ img {
     font-size: 1.1rem;
     line-height: 1.65;
     color: var(--text-muted);
+    margin-top: 6rem;
     margin-bottom: 1.25rem;
     font-style: italic;
     border-left: 3px solid var(--accent);
@@ -211,6 +283,7 @@ img {
 .header-rule {
     height: 2px;
     background: var(--text);
+    max-width: var(--col-width);
 }
 
 /* ===========================
@@ -329,19 +402,17 @@ img {
 =========================== */
 .chart-figure {
     margin: 2.25rem 0;
-    border-top: 1px solid var(--border);
     padding-top: 1rem;
 }
 
 .chart-figure img {
     width: 100%;
-    background: var(--bg-2);
-    border: 1px solid var(--border-light);
+    background: var(--bg);
 }
 
 .iframe-wrapper {
-    background: white;
-    border: 1px solid var(--border-light);
+    background: var(--bg);
+    border: none;
     overflow: hidden;
 }
 
@@ -356,7 +427,6 @@ figcaption {
     color: var(--text-muted);
     margin-top: 0.6rem;
     line-height: 1.55;
-    border-bottom: 1px solid var(--border-light);
     padding-bottom: 0.6rem;
 }
 
@@ -431,7 +501,7 @@ figcaption strong {
 }
 
 .footer-inner {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: center;
 }
@@ -453,7 +523,33 @@ figcaption strong {
     color: var(--text-light) !important;
     margin-top: 0.4rem;
 }
+/* ===========================
+   LIMITATION BOX
+=========================== */
+.limitation-box {
+    border-left: 3px solid var(--accent);
+    background: var(--bg-2);
+    padding: 1.4rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0;
+}
 
+.limitation-title {
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+}
+
+.limitation-box p {
+    font-size: 0.95rem !important;
+    color: var(--text-muted) !important;
+    line-height: 1.75 !important;
+    margin-bottom: 0 !important;
+}
 /* ===========================
    RESPONSIVE
 =========================== */
@@ -486,16 +582,14 @@ figcaption strong {
     .nav-links a {
         display: block;
         padding: 0.75rem 1.5rem;
-        border-bottom: none;
+    }
+
+    .nav-links a::after {
+        display: none;
     }
 
     .nav-toggle {
         display: block;
-    }
-
-    .navbar {
-        position: sticky;
-        overflow: visible;
     }
 
     .drop-cap {
@@ -510,6 +604,14 @@ figcaption strong {
 
     .section-heading {
         font-size: 1.4rem;
+    }
+
+    .header-image {
+        display: none;
+    }
+
+    .top-bar {
+        padding: 0.45rem 1.5rem;
     }
 }
 

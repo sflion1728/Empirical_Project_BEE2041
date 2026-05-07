@@ -1,5 +1,8 @@
-// Navbar scroll effect
+// ============================================================
+// NAVBAR: Add shadow on scroll
+// ============================================================
 const navbar = document.getElementById('navbar');
+
 window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
         navbar.classList.add('scrolled');
@@ -8,7 +11,9 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Mobile nav toggle
+// ============================================================
+// MOBILE NAV TOGGLE
+// ============================================================
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 
@@ -23,23 +28,61 @@ navLinks.querySelectorAll('a').forEach(link => {
     });
 });
 
-// Highlight active nav link on scroll
-const sections = document.querySelectorAll('section[id], header[id]');
+// ============================================================
+// SMOOTH SCROLL: Override default anchor behaviour
+// Accounts for fixed navbar height
+// ============================================================
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
+        e.preventDefault();
+
+        const navHeight = navbar.offsetHeight;
+        const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight - 10;
+
+        window.scrollTo({
+            top: targetTop,
+            behavior: 'smooth'
+        });
+    });
+});
+
+// ============================================================
+// ACTIVE LINK HIGHLIGHTING
+// Highlights the correct nav link as you scroll
+// ============================================================
+const sections = [
+    document.getElementById('about'),
+    document.getElementById('analysis'),
+    document.getElementById('interactive'),
+    document.getElementById('findings')
+];
+
 const links = document.querySelectorAll('.nav-links a');
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            links.forEach(link => {
-                link.style.color = '';
-                link.style.borderBottomColor = '';
-                if (link.getAttribute('href') === '#' + entry.target.id) {
-                    link.style.color = 'var(--accent)';
-                    link.style.borderBottomColor = 'var(--accent)';
-                }
-            });
+function setActiveLink() {
+    const navHeight = navbar.offsetHeight + 20;
+    const scrollPos = window.scrollY + navHeight;
+
+    let currentSection = sections[0];
+
+    sections.forEach(section => {
+        if (!section) return;
+        if (section.offsetTop <= scrollPos) {
+            currentSection = section;
         }
     });
-}, { threshold: 0.3 });
 
-sections.forEach(section => observer.observe(section));
+    links.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSection.id) {
+            link.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', setActiveLink);
+window.addEventListener('load', setActiveLink);

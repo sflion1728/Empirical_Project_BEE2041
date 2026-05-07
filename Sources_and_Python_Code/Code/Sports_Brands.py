@@ -14,9 +14,12 @@ if there was any Hype affect on the keywords
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import os 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
 
 
-df = pd.read_csv('Google_Trends_Over_Time.csv')
+df = pd.read_csv('../Data/Google_Trends_Over_Time.csv')
 df['date'] = pd.to_datetime(df['date'])
 df['date_num'] = (df['date'] - df['date'].min()).dt.days
 
@@ -58,7 +61,8 @@ print(f"Row count: {len(df)}")
 ######################################################################### 
 
 fig, ax = plt.subplots(figsize=(12, 6))
-
+fig.patch.set_facecolor('#f7f4ef')   # outer background
+ax.set_facecolor('#f7f4ef')          # plot background
 colours = {
     'La Sportiva': '#2A9D8F',
     'Scarpa':      '#E63946',
@@ -81,16 +85,14 @@ ax.axvline(pd.Timestamp('2021-08-01'), color='grey', linewidth=1.2,
 ax.text(pd.Timestamp('2021-08-01'), 95, 'Tokyo\nOlympics', fontsize=8,
         color='grey', ha='center')
 
-ax.axvline(pd.Timestamp('2024-08-01'), color='grey', linewidth=1.2,
-           linestyle='--', alpha=0.7)
-ax.text(pd.Timestamp('2024-08-01'), 95, 'Paris\nOlympics', fontsize=8,
-        color='grey', ha='center')
-
 ax.set_title('La Sportiva & Scarpa Search Interest Over Time',
              fontsize=13, fontweight='bold')
 ax.set_xlabel('Year')
+years = pd.date_range(start='2015-01-01', end='2026-01-01', freq='YS')
+ax.set_xticks(years)
+ax.set_xticklabels([y.year for y in years], rotation=45, ha='right')
 ax.set_ylabel('Search Interest (0-100)')
 ax.legend(fontsize=9)
 ax.spines[['top', 'right']].set_visible(False)
 plt.tight_layout()
-plt.savefig('Plots/plot_brands.png', dpi=150)
+plt.savefig('../Plots/plot_brands.png', dpi=150)

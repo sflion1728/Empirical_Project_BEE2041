@@ -14,14 +14,16 @@ the sport from 2015. Showing key growth of climbing against other sports.
 
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import os 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
 
 
 ####################################################################################
 # Load Data
 ####################################################################################
 
-raw = pd.read_excel('TYPES_OF_ACTIVITY_RAW_FILE.xlsx',
+raw = pd.read_excel('../Data/TYPES_OF_ACTIVITY_RAW_FILE.xlsx',
     sheet_name='Table 6b Activities Trends',  # <-- changed sheet
     header=None
 )
@@ -94,10 +96,25 @@ colours = ['#2A9D8F' if x >= 0 else '#E63946'
            for x in df_sorted['pct_change']]
 df_sorted.plot(x='activity', y='pct_change', kind='barh', figsize=(9, 6),
                legend=False,color=colours, zorder=3)
+plt.gcf().set_facecolor('#f7f4ef')   # ← outer background
+plt.gca().set_facecolor('#f7f4ef')
+
+
+# Add value label only for Climbing & Bouldering 
+
+for i, (activity, value) in enumerate(zip(df_sorted['activity'], df_sorted['pct_change'])):
+    if activity == 'Climbing & Bouldering':
+        plt.text(value - 3, i, f'{value:+.1f}%', 
+                 va='center', ha='center', fontsize=9, 
+                 fontweight='bold', color='white')
 
 plt.grid(axis='x', linestyle='--', color='grey', alpha=0.4)
 plt.title('% Change in Participation Since 2015-16')
 plt.xlabel('% Change')
+plt.ylabel('Activity')
 plt.axvline(0, color='black', linewidth=0.8)
+plt.gca().spines['top'].set_visible(False)
+plt.gca().spines['right'].set_visible(False)
+plt.tick_params(axis='y', length=0)
 plt.tight_layout()
-plt.savefig('Plots/Sports_Plot_1b_2015.png', dpi=150)
+plt.savefig('../Plots/Sports_Plot_2015.png', dpi=150)

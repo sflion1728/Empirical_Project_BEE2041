@@ -12,8 +12,7 @@
 
     <!-- TOP BAR -->
     <div class="top-bar">
-        <span>BEE2041 &mdash; Empirical Project</span>
-        <span>2025</span>
+        <span> Empirical Project</span>2026
     </div>
 
     <!-- NAVBAR -->
@@ -24,8 +23,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#analysis">Analysis</a></li>
-                <li><a href="#interactive">Interactive</a></li>
-                <li><a href="#findings">Findings</a></li>
+                <li><a href="#findings">Conclusion</a></li>
             </ul>
         </div>
     </nav>
@@ -34,35 +32,51 @@
     <main class="article-wrapper" id="home">
 
         <!-- HEADER -->
-        <header class="article-header">
-            <div class="article-category">Data Analysis &bull; Sport &bull; United Kingdom</div>
-            <h1 class="article-title">The Rise of Climbing:<br><em>Hype vs Reality?</em></h1>
-            <p class="article-standfirst">An empirical investigation into whether bouldering's meteoric rise in the UK reflects genuine participation growth — or is simply a product of media attention and cultural hype.</p>
+       <!-- HEADER -->
+<header class="article-header">
+    <div class="header-content">
+
+        <!-- LEFT: Text -->
+        <div class="header-text">
+            <div class="article-category">Climbing & Bouldering &bull; Sport &bull; United Kingdom</div>
+            <h1 class="article-title">The Rise of Climbing</h1>
+            <p class="article-standfirst">Exploring and analysing the different factors around the upbringing of climbing, digging deeper into the data and examining what/who are the drivers of this fast growing sport.</p>
             <div class="article-meta">
-                <span>BEE2041 Empirical Project</span>
+                <span>May</span>
                 <span class="meta-dot">&bull;</span>
-                <span>2025</span>
+                <span>2026</span>
             </div>
-            <div class="header-rule"></div>
-        </header>
+        </div>
+
+        <!-- RIGHT: Image -->
+        <div class="header-image">
+            <img src="Sources_and_Python_Code/Plots/1000000492.png" alt="Climber silhouette">
+        </div>
+
+    </div>
+    <div class="header-rule"></div>
+</header>
+
+
+        
 
         <!-- INTRODUCTION -->
         <section class="article-section" id="about">
             <div class="drop-cap-wrap">
-                <p><span class="drop-cap">I</span>n the years since indoor climbing first appeared at the Olympic Games in Tokyo 2021, the sport has experienced a surge in public interest unlike almost any other recreational activity in the United Kingdom. Gym memberships have climbed, new bouldering facilities have opened in cities across the country, and social media feeds have filled with chalk-dusted hands gripping coloured holds.</p>
+                <p><span class="drop-cap">T</span>he world of climbing has seen an unprecedented growth, seemingly everyone is trying out the sport. Climbing was once a niche sport that was only done by a small group of people, now it has grown tremendously. This sport is beginner friendly, and easy to start, you simply climb up! In addition, it has become a place for people to socialize with friends and overall, a chill sport. 
+                <p>This blog will look into the detail of the rise of climbing, using data sources to produce insightful data that could perhaps explain what/who is driving this boom. We look into several factors and uncover some interesting results. Social media has definitely shown its likeliness of the sport. So, using google trends data we explore an advance modelling technique: regression, to see if the hype around bouldering is real. Are people really showing up, or is it just hyped?
             </div>
-            <p>But is this growth real? This project examines the data behind climbing's rise — drawing on participation statistics, Google Trends data, gym location records, and demographic breakdowns — to answer a simple question: is the rise of climbing driven by genuine, sustained participation, or is it a flash of cultural hype destined to fade?</p>
-            <p>Using a range of empirical methods including regression analysis and regional heatmapping, this project paints a data-driven picture of one of the UK's fastest growing sports.</p>
+            <p>
 
             <div class="infobox">
                 <div class="infobox-title">About This Project</div>
                 <div class="infobox-grid">
                     <div class="infobox-item">
-                        <span class="infobox-num">7+</span>
+                        <span class="infobox-num">3</span>
                         <span class="infobox-label">Data Sources</span>
                     </div>
                     <div class="infobox-item">
-                        <span class="infobox-num">5+</span>
+                        <span class="infobox-num">7</span>
                         <span class="infobox-label">Charts &amp; Plots</span>
                     </div>
                     <div class="infobox-item">
@@ -82,129 +96,141 @@
         <!-- ANALYSIS -->
         <section class="article-section" id="analysis">
             <h2 class="section-heading">
-                <span class="section-num">01</span> Exploring the Data
+                <span class="section-num">01</span> The Analysis
             </h2>
-            <p>The following charts form the backbone of this analysis. Each visualisation draws on a different data source, together building a complete picture of climbing's trajectory in the UK.</p>
+        </p>The following charts will paint a picture into what has really drove participation. The data has been collected and cleaned to produce the plots below
+               The visualisations will hopefully build a complete picture of climbing's trajectory in the UK.
+            
+        </p>30 years ago, climbing gyms were scarce and barely any popularity. Today, there are everywhere, let us explore the chart below to see what has happend.
 
             <!-- Chart 1 -->
             <figure class="chart-figure">
-                <img src="Sources_and_Python_Code/Plots/Ages_time_series.png" alt="Age participation trends over time" loading="lazy">
+                <img src="Sources_and_Python_Code/Plots/Area_Chart.png" alt="Area_Chart" loading="lazy">
                 <figcaption>
-                    <strong>Chart 1: Age Trends Over Time.</strong> How different age groups have engaged with climbing across the study period.
+                    <strong>Chart 1: The cumulative rise of climbing gyms.</strong> Area chart of the number of climbing gyms over the years from period 1995-2025
                 </figcaption>
             </figure>
-            <p>Add your written analysis here. Describe the key trends, any surprising findings, and what the data tells us about climbing participation across age groups. Which age group showed the most growth? Was there a particular turning point?</p>
+            </p>The reality is, there has definitely been a boom in the no. of gyms popping up, with bouldering noticeably booming. Back in 1995, climbing gyms were hardly around, then around 2004/2005 that was when it started to pop off, more gyms started opening up, and every year after that, there has been a significant rise in the number of openings.</p> 
+            </p>The graph also shows something interesting.Bouldering only gyms have really seen a boom, perhaps noting that maybe the ease of climbing without ropes and low levels of experience needed seemed to attract more attention? Nevertheless, the has been a dramatic uptake in the amount of gym openings for both categories. The industry is showing that huge investment into the sport, suggesting investors are noticing big changes and opportunity.</p> 
+            </p>But now we must answer another question Do levels of participants back the story? Are more people really climbing? We look at next chart below.</p> 
+
+                
 
             <!-- Chart 2 -->
             <figure class="chart-figure">
-                <img src="Sources_and_Python_Code/Plots/Area_Chart.png" alt="Overall participation growth area chart" loading="lazy">
+                <img src="Sources_and_Python_Code/Plots/Sports_Plot_2015.png" alt="Sport_Plot" loading="lazy">
                 <figcaption>
-                    <strong>Chart 2: Participation Area Chart.</strong> A broad view of how overall participation has grown across the study period.
+                    <strong>Chart 2: Climbing vs other sports.</strong> A bar chart showing the % level changes to each sport from 2015 to 2024
                 </figcaption>
             </figure>
-            <p>Add your written analysis here. Explain what the area chart reveals about overall participation trends and how this supports or challenges the hypothesis that climbing growth is genuine rather than hype driven.</p>
+            </p>Here we look at data from Sport England, where they produce a yearly database containing types of activities people have participated in over the last year. The chart reveals something clear, more people are climbing and its rising faster than most popular sports. 
+            </p>Comparing 2015 to 2024 levels, climbing has seen an impressive 50.2% increase in its levels of participants, this is well clear of some of the other popular sports, with only tennis seeing a slight increase in levels from 2015. This for sure back up the data, more gyms + more people climbing are two powerful signals that this sport has really been taking off! 
+            </p>Now we can break this down even more, who exactly is driving this boom? The next chart reveals something fascinating.
 
-            <!-- Chart 3 -->
-            <figure class="chart-figure">
-                <img src="Sources_and_Python_Code/Plots/Heatmap_Regions.png" alt="Regional heatmap of climbing popularity" loading="lazy">
-                <figcaption>
-                    <strong>Chart 3: Regional Heatmap.</strong> Where in the UK is climbing most popular? A breakdown by region.
-                </figcaption>
-            </figure>
-            <p>Add your written analysis here. Describe which regions show the strongest participation and whether geographic clustering suggests climbing is primarily an urban phenomenon or spreading more broadly across the UK.</p>
-
-            <!-- Chart 4 -->
-            <figure class="chart-figure">
-                <img src="Sources_and_Python_Code/Plots/Regression_scatter.png" alt="Regression analysis scatter plot" loading="lazy">
-                <figcaption>
-                    <strong>Chart 4: Regression Analysis.</strong> Statistical analysis of the key drivers behind climbing's growth.
-                </figcaption>
-            </figure>
-            <p>Add your written analysis here. Explain the regression model, what variables were included, and what the statistical results tell us about the drivers of climbing participation.</p>
-
-            <!-- Chart 5 -->
-            <figure class="chart-figure">
-                <img src="Sources_and_Python_Code/Plots/Sports_Plot_1b_2015.png" alt="Sports comparison since 2015" loading="lazy">
-                <figcaption>
-                    <strong>Chart 5: Sports Comparison.</strong> How does climbing compare to other sports in terms of growth since 2015?
-                </figcaption>
-            </figure>
-            <p>Add your written analysis here. How does climbing's growth compare to other sports? Is it exceptional or in line with broader trends in recreational sport participation across the UK?</p>
-
-            <!-- Chart 6 -->
-            <figure class="chart-figure">
-                <img src="Sources_and_Python_Code/Plots/plot_brands.png" alt="Brand influence on climbing participation" loading="lazy">
-                <figcaption>
-                    <strong>Chart 6: Brand Influence.</strong> The role of climbing brands and commercial interest in driving awareness and participation.
-                </figcaption>
-            </figure>
-            <p>Add your written analysis here. Discuss how brand growth and commercial investment relate to participation figures and whether commercial interest is a leading or lagging indicator of sport growth.</p>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- INTERACTIVE -->
+            <!-- INTERACTIVE -->
         <section class="article-section" id="interactive">
             <h2 class="section-heading">
-                <span class="section-num">02</span> Explore the Data Yourself
             </h2>
-            <p>The chart below is interactive — hover over the data points to explore age-based climbing trends in detail. Use it to draw your own conclusions from the underlying data.</p>
+            <p>The chart below is interactive — hover over the data points to explore age-based climbing trends in detail</p>
             <figure class="chart-figure">
                 <div class="iframe-wrapper">
                     <iframe
                         src="Sources_and_Python_Code/Plots/interactive_age.html"
                         title="Interactive age-based climbing participation chart"
                         width="100%"
-                        height="480"
+                        height="620"
                         frameborder="0"
                         loading="lazy">
                     </iframe>
                 </div>
                 <figcaption>
-                    <strong>Interactive Chart: Age-Based Participation.</strong> Hover over the chart to explore data points. Use the legend to toggle different age groups.
+                    <strong>Chart 3: Participation levels across each age group.</strong> Interactive line chart, showing how each age category has changed over the years  
                 </figcaption>
             </figure>
+            </p>people in the [55-64] bracket have seen the biggest growth taking up the sport! What is often portrayed in the media as a sport for young people, has now been proven that it is not the case. Although in absolute terms, younger people still make the larger share of active climbers, the results are clear, it is the [55-64] age bracket that have really been drivers in the sport, outpacing all age brackets.
+            </P> It seems that the Tokyo Olympics seem to of had a big impact on the [55-64] category, seeing the biggest year-on-year change over the 21-22 and 22-23 period! Additionally, for all age groups, there has been a rise from the base level 100, for the last 2 years, noting that climbing is more of a recent boom. Nevertheless, it has clearly shown its popularity!
+                We can see that climbing is a sport for everyone no matter the age, a total beginner can start with ease, and the data so far is showing just how much people appreciate the sport.
+            </P>We now turn to look at the geographical data across the regions in England. Well, we have established more people are taking up the sport, but could there be regional difference with cause this spike. Such that only popular regions have really see a growth in climbing but maybe not so much in others? The next chart shows the details of this.
+
+
+            <!-- Chart 4 -->
+            <figure class="chart-figure">
+                <img src="Sources_and_Python_Code/Plots/Heatmap_Regions.png" alt="Heatmap" loading="lazy">
+                <figcaption>
+                    <strong>Chart 4: English regional data about participation </strong> A heatmap using year 2015-16 as the base index = 100
+                </figcaption>
+            </figure>
+        </p>The heatmap shows something fascinating. Firstly, every single region in England has seen an uptake in the sport since 2015. Year 2020-21 rightly dropped due to Covid, but figures show participation bounced back quickly post-covid. Even more interestingly it grew even more then pre-covid levels! 
+        </p>Yorkshire has seen an incredible growth, consistent increase in numbers and more than doubling from 2015, South West following with a 64% increase and just behind is London with a 61% increase. Looking at the map, there does not seem any evidence to suggest that regional differences have a direct effect on climbing participation, such that cities large and small have seen similar growth effects.
+        </p>It is worth noting that Year 2021-22 was when climbing was debuted on Tokyo Olympics, the year following suggest a post-covid and maybe post Olympics surge working to boost levels of partaking in climbing. 
+        </p>So far, the data is suggesting there is more and more people taking up the sport, so now we look at a different angle. With climbing you need fancy equipment such as climbing shoes. So, let’s see if more people are really taking up climbing, is there an uptake of google searches for climbing shoes? 
+
+
+            <!-- Chart 5 -->
+            <figure class="chart-figure">
+                <img src="Sources_and_Python_Code/Plots/plot_brands.png" alt="climbing show brands" loading="lazy">
+                <figcaption>
+                    <strong>Chart 5: Google trends of climbing shoes</strong> A line chart showing the trends of shoes 'Scarpa' and 'La Sportiva'
+                </figcaption>
+            </figure>
+        </p>Here we have Google trends data search of popular shoe brands: Scarpa and La Sportiva. The graph shows something clear, there has been a consistent increase of searches for these shoes, with La Sportiva shoes being slightly more popular than Scarpa. 
+        </p>Dashed lines have been drawn to show the overall trend in searches, which highlights the upward movement. The graph shows peaks and troughs, with the peak happing during Dec-Jan time, which makes sense to buy the shoes at a discount! 
+        </p>The graph suggest that it is not just about more people taking part, the business side is booming too. Considering the highest peaks over the 10-year period happened very recently, it could suggest that the climbing shoes companies are going to see rises in profits over the near future.
+        </p>To finalised, we look at some advance modelling, so let’s see whether the hype around bouldering correlates with people actually climbing, we will use a regression analysis to answer that.
+
+
+            <!-- Chart 6 -->
+            <figure class="chart-figure">
+                <img src="Sources_and_Python_Code/Plots/Regression_scatter.png" alt="Regression analysis" loading="lazy">
+                <figcaption>
+                    <strong>Chart 6: Advance modelling.</strong> A regression analysis using google trend data of 
+                    'bouldering' and plotting against the climbing participation.
+                </figcaption>
+            </figure>
+
+            <figure class="chart-figure">
+                <img src="Sources_and_Python_Code/Plots/Regression_Chart_table.png" alt="Regression table" loading="lazy" style="width: 70%; margin: 0 auto;">
+                <figcaption>
+                    <strong>Chart 6: Statistical table </strong> Statsitics found from Chart 6
+                </figcaption>
+            </figure>
+        </p>Here we run a regression analysis using Google trend searches of ‘Bouldering’ against participation levels. This is done to really test if bouldering hype predicts participation. There is hype across many social media platforms, but the question to be answered is if this hype actually correlates to more people showing up, and if this is significant.
+        </p>The regression line shows, as Google search interest in "Bouldering" increases, actual participation also increases. The data point in red represents 2020, the year covid hit. This confirms that the hype on social media is not fake, people are actually showing a commitment to the sport. 
+        </p>The years 2022, 2023 are seated in the top right of the graph, hitting the highest levels of participants and search trends. This hype can be correlated with the 2021 Tokyo Olympics; the year climbing was introduced. A sustained level of searches and partaking have continued 2 years after the Olympics.
+        </p>The regression line is upward sloping, with an R<sup>2</sup> of 0.38 which means Google Trends search interest for 'Bouldering' explains roughly 38% of the variation in climbing participation. Showing a moderate relationship between the two. 
+        </p>The slope has a value +4.15, this represents for every one-point increase in google searches, climbing rises by approximately 4150 participants. This suggest that searches do have a correlation with people actually climbing. 
+        </p>The p-value reported is 0.079, this fall just short of being statistically significant, but nevertheless, still shows some significance.
+
+
+            <div class="limitation-box">
+                <div class="limitation-title"> NOTE ON LIMITATIONS</div>
+                <p>It should be noted that the dataset has only 9 observations, as 2015 was the year climbing was introduced into Sport England data collection. Ideally, for a regression you would need more observations. To improve on this analysis, we will have to collect more data to prove if the data show any statistical significance. 
+                <p>
+                <p>Google Trends only capture one part of the picture; people may not need to search bouldering to show they are interested. To improve, we would need to collect data from other social media platforms to develop a true picture. 
+            </div>
         </section>
 
-        <div class="section-divider"></div>
-
-        <!-- FINDINGS -->
+    <div class="section-divider"></div>
         <section class="article-section" id="findings">
             <h2 class="section-heading">
-                <span class="section-num">03</span> Key Findings
+                <span class="section-num">03</span> Conclusion
             </h2>
-            <p>Based on the analysis above, the following conclusions can be drawn about the nature of climbing's growth in the United Kingdom.</p>
-
-            <div class="finding-block">
-                <div class="finding-label">Finding 01</div>
-                <h3>Add your first key finding here</h3>
-                <p>Replace this with a detailed explanation of your first key finding. Reference your charts and data to support this conclusion.</p>
-            </div>
-
-            <div class="finding-block">
-                <div class="finding-label">Finding 02</div>
-                <h3>Add your second key finding here</h3>
-                <p>Replace this with a detailed explanation of your second key finding. Reference your charts and data to support this conclusion.</p>
-            </div>
-
-            <div class="finding-block">
-                <div class="finding-label">Finding 03</div>
-                <h3>Add your third key finding here</h3>
-                <p>Replace this with a detailed explanation of your third key finding. Reference your charts and data to support this conclusion.</p>
-            </div>
-
             <div class="conclusion-box">
-                <p><strong>In conclusion</strong> — replace this with your overall conclusion. Is climbing's rise hype or reality? What does the data say? Summarise your key argument here in 2&ndash;3 sentences.</p>
+                <p><strong>In conclusion</strong> —   From the analysis above, we can conclude that indeed, climbing has seen a <strong >rise in popularity</strong>. 
+                    Some surprising result shows that young people may not be the biggest drivers, and from a business perspective, there seems to be opportunity for new gyms to arise, and for climbing shoes to be selling faster than ever.</p>
             </div>
-        </section>
 
+
+
+        </section>
+  
     </main>
 
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-rule"></div>
-            <p>BEE2041 Empirical Project &mdash; 2025</p>
+            <p>Empirical Project &mdash; 2026</p>
             <p class="footer-small">Built with HTML &amp; CSS &bull; Hosted on GitHub Pages</p>
         </div>
     </footer>

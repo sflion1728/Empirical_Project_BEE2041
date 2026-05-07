@@ -23,6 +23,9 @@ import matplotlib.pyplot as plt
 import warnings
 import plotly.graph_objects as go
 warnings.filterwarnings('ignore', category=FutureWarning)
+import os 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
 
 
  
@@ -30,7 +33,7 @@ warnings.filterwarnings('ignore', category=FutureWarning)
 # CLEANING THE DATA
 ########################################################################
 
-df = pd.read_csv('Age_Climbing_RAW_FILE.csv', skiprows=4, index_col=0)
+df = pd.read_csv('../Data/Age_Climbing_RAW_FILE.csv', skiprows=4, index_col=0)
 df.columns = df.columns.str.strip()
 print('Preview of Table')
 print('')
@@ -97,26 +100,30 @@ for i, (age_group, row) in enumerate(df_index.iterrows()):
 olympic_idx = years.index('Nov 21-22')
 fig.add_vline(x=olympic_idx, line_dash='dash', line_color='#E63946', line_width=1.5)
 fig.add_hline(y=100, line_dash='dash', line_color='grey', line_width=1, opacity=0.5)
-fig.add_annotation(x=olympic_idx, y=25, text='Tokyo Olympics',
+fig.add_annotation(x=olympic_idx, y=55, text='Tokyo Olympics',
                    showarrow=False, font=dict(color='#E63946', size=11))
 
 fig.update_layout(
     title='Age Group Participation Index 2015–2024 (Base = 100)',
+
     xaxis=dict(
         tickvals=list(range(len(years))), ticktext=years, tickangle=-30,
         range=[-0.5, len(years) - 0.5],
         minallowed=-0.5, maxallowed=len(years) - 0.5,
+        showline=True, linecolor='lightgrey', linewidth=1,
     ),
     yaxis=dict(
         title='Participation Index (Base 2015-16 = 100)',
-        range=[20, 290], minallowed=20, maxallowed=290,
+        range=[40, 290], minallowed=20, maxallowed=290,
+        showline=True, linecolor='lightgrey', linewidth=1,
     ),
-    height=550,
-    paper_bgcolor='#FAFAFA',
-    plot_bgcolor='#FAFAFA',
+    height=600,
+    paper_bgcolor='#f7f4ef',
+    plot_bgcolor='#f7f4ef',
     hovermode='x unified',
     dragmode='zoom',
-    margin=dict(r=160),
+    #margin=dict(r=160),
+    margin=dict(r=160, t=40, b=20,l=10),
     legend=dict(
         bgcolor='rgba(0,0,0,0)',
         bordercolor='#264653',
@@ -131,33 +138,7 @@ fig.update_layout(
     )
 )
 
-fig.write_html('Plots/interactive_age.html',
+fig.write_html('../Plots/interactive_age.html',
                config={'scrollZoom': False, 'displaylogo': False})
 
 
-
-##############################################################################################
-# PLOT 1 — Age Time Series (Base 2015-16 = 100)
-##############################################################################################
-
-df_index = df.div(df.iloc[:, 0], axis=0) * 100
-colours = ['#2A9D8F', '#E9C46A', '#E76F51', '#457B9D', '#A8DADC', '#CDB4DB']
-plt.figure(figsize=(13, 8))
- 
-for i, (age_group, row) in enumerate(df_index.iterrows()):
-    valid = row.dropna()
-    x = [years.index(y) for y in valid.index]
-    plt.plot(x, valid.values, marker='o', linewidth=2.5,
-             color=colours[i % len(colours)], label=age_group)
- 
-plt.axhline(100, color='grey', linewidth=1, linestyle='--', alpha=0.6, label='Base (100)')
-plt.axvline(years.index('Nov 21-22'), color='#E63946', linewidth=1.5, linestyle='--')
- 
-plt.text(years.index('Nov 21-22') + 0.1, 20, 'Tokyo\nOlympics', fontsize=8, color='#E63946')
- 
-plt.xticks(range(len(years)), years, rotation=30, ha='right')
-plt.ylabel('Participation Index (Base 2015-16 = 100)')
-plt.title('Age Group Participation Index 2015–2024 (Base = 100)', fontweight='bold')
-plt.legend(loc='upper left')
-plt.tight_layout()
-plt.savefig('Plots/Ages_time_series.png', dpi=150, bbox_inches='tight')

@@ -15,6 +15,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings('ignore', category=FutureWarning)
+import os 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
 
 
  
@@ -22,7 +25,7 @@ warnings.filterwarnings('ignore', category=FutureWarning)
 # LOAD DATA
 ###########################################################################
 
-df = pd.read_excel('ActiveLivesDataExport_Regions_RAW_FILE.xlsx', skiprows=3)
+df = pd.read_excel('../Data/ActiveLivesDataExport_Regions_RAW_FILE.xlsx', skiprows=3)
 df.columns = ['Region'] + list(df.columns[1:])
 df['Region'] = df['Region'].str.strip('"').str.strip()
  
@@ -120,9 +123,10 @@ for region, g in growth.sort_values(ascending=False).items():
 # PLOT - Heatmap
 ####################################################################
 
-plt.figure(figsize=(13, 6))
+plt.figure(figsize=(13, 8), facecolor='#f7f4ef')
+plt.gca().set_facecolor('#f7f4ef') 
 plt.imshow(df_idx.values, cmap='YlGn', aspect='auto', vmin=50, vmax=220)
- 
+
  
 # loop through each row and column and add numbers in each cell
 
@@ -160,6 +164,6 @@ plt.xlim(-0.5, len(selected) + 0.75)
 plt.colorbar(label='Participation Index (Base 2015-16 = 100)', shrink=0.75)
 plt.title('Regional Climbing Participation Heatmap: (Using 2015 as Baseline = 100)\n',
           fontsize=12, fontweight='bold', pad=25)
- 
+
 plt.tight_layout()
-plt.savefig('Plots/Heatmap_Regions.png', dpi=150, bbox_inches='tight', facecolor='#FAFAFA')
+plt.savefig('../Plots/Heatmap_Regions.png', dpi=150, bbox_inches='tight', facecolor='#f7f4ef')

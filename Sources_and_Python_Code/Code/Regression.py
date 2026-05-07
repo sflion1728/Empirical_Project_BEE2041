@@ -22,6 +22,10 @@ from scipy import stats
 import statsmodels.api as sm
 import warnings
 warnings.filterwarnings('ignore', category=FutureWarning)
+import os 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
+
  
  
  
@@ -29,9 +33,9 @@ warnings.filterwarnings('ignore', category=FutureWarning)
 # Load Google Trends & Regions data
 #################################################################
 
-trends = pd.read_csv('Google_Trends_Over_Time.csv')
-trends['date'] = pd.to_datetime(trends['date'])
-trends['year'] = trends['date'].dt.year
+trends = pd.read_csv("../Data/Google_Trends_Over_Time.csv")
+trends["date"] = pd.to_datetime(trends["date"])
+trends["year"] = trends["date"].dt.year
  
 print(" --- GOOGLE TRENDS RAW --- ")
 print(f"Shape: {trends.shape}")
@@ -58,7 +62,7 @@ year_map = {
     '2021-22': 2021, '2022-23': 2022, '2023-24': 2023,
 }
  
-sport = pd.read_excel('ActiveLivesDataExport_Regions_RAW_FILE.xlsx', skiprows=3, header=0, index_col=0)
+sport = pd.read_excel('../Data/ActiveLivesDataExport_Regions_RAW_FILE.xlsx', skiprows=3, header=0, index_col=0)
 sport.columns = list(year_map.keys())
  
 print("--- SPORT ENGLAND RAW ---")
@@ -172,10 +176,12 @@ PLOTS, 7a(regression line, plotting the participants in each year and fitting a 
 # PLOT 7a — Scatter + Regression Line
 ###################################################################################
 
-colours = ['#E63946' if yr in [2019, 2020] else '#2A9D8F'
+colours = ['#E63946' if yr in [2020] else '#2A9D8F'
            for yr in merged['year']]
  
 fig, ax = plt.subplots(figsize=(7, 5))
+fig.patch.set_facecolor('#f7f4ef')   # ← outer background
+ax.set_facecolor('#f7f4ef') 
 ax.scatter(merged['search_interest'], merged['participants'],
            color=colours, s=80, zorder=5)
  
@@ -196,7 +202,7 @@ ax.set_title('Does Hype Predict Participation?', fontsize=13, fontweight='bold')
 ax.legend(fontsize=9)
 ax.spines[['top', 'right']].set_visible(False)
 plt.tight_layout()
-plt.savefig('Plots/Regression_scatter.png', dpi=150)
+plt.savefig('../Plots/Regression_scatter.png', dpi=150)
 
 
  
@@ -229,6 +235,8 @@ table_data = [
 # Creating the table 
 
 fig, ax = plt.subplots(figsize=(6, 3))
+fig.patch.set_facecolor('#f7f4ef')   # ← outer background
+ax.set_facecolor('#f7f4ef') 
 ax.axis('off')
 
 tbl = ax.table(cellText=table_data,
@@ -248,12 +256,14 @@ for col_idx in range(2):
 for row_idx in range(1, len(table_data) + 1):
     for col_idx in range(2):
         if row_idx % 2 == 0:
-            tbl[(row_idx, col_idx)].set_facecolor('#F5F5F5')
+            tbl[(row_idx, col_idx)].set_facecolor("#E7E7E5")
         if col_idx == 1:
             tbl[(row_idx, col_idx)].set_text_props(fontweight='bold', color='#2A9D8F')
 
 ax.set_title('OLS Regression Results', fontsize=12, fontweight='bold', pad=12)
+plt.gcf().set_facecolor('#f7f4ef')   # ← outer background
+plt.gca().set_facecolor('#f7f4ef')
 plt.tight_layout()
-plt.savefig('Plots/Regression_Chart_table.png', dpi=150)
+plt.savefig('../Plots/Regression_Chart_table.png', dpi=150)
 
 
