@@ -1,7 +1,7 @@
 '''
 NOTE: DO NOT RUN MANY TIMES IN A ROW, GOOGLE HAS A RATE LIMIT ON 
 HOW MANY TIMES THIS CAN BE RUN. IF THERE IS AN ERROR, WAIT 10-15 
-MINS/OR CHANGE YOUR IP ADDRESS AND RUN AGAIN
+MINS/OR CHANGE YOUR IP ADDRESS AND RUN AGAIN. ADDITIONALy CHANGE 'time.sleep(15)'
 NOTE: Code may run longer then usual. 
 
 This file collects data from Google trends using pytrends libary. 

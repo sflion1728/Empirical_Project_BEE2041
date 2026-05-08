@@ -108,7 +108,13 @@ pip install pandas==2.3.3 matplotlib==3.10.8 numpy==2.2.6 scikit-learn==1.7.2 sc
 # 1
 python3 Sources_and_Python_Code/Code/Google_Trends.py
 ```
-**NOTE: Run the `Google_Trends.py` file first. There may be a 404 error and you may get timed out, if you do get timed out, then wait 15-20 mins to try again/or change your IP address. The `csv` file produced from this code is included in the folder in case it does not run.**
+**NOTE: Run the `Google_Trends.py` file first. There may be a 404 error and you may get timed out, if you do get timed out, then wait 15-20 mins to try again/or change your IP address. Additonally, try increasing:**
+
+```python
+time.sleep(15)
+```
+
+ In the code. The `csv` file produced from this code is included in the folder in case it does not run.**
 
 
 
@@ -188,8 +194,8 @@ This model will look to explain if a causal relationship between Google trend se
 ### Datasets
 | Files | Source | Method |
 |---|---|---|
-| `ActiveLivesDataExport_Regions_RAW_FILE.xlsx` | [sportengland.org](https://activelives.sportengland.org/) | downloaded |
-| `Age_Climbing_RAW_FILE.csv` | [sportengland.org](https://activelives.sportengland.org/) | downloaded |
+| `ActiveLivesDataExport_Regions_RAW_FILE.xlsx` | [activelives.sportengland.org](https://activelives.sportengland.org/) | downloaded |
+| `Age_Climbing_RAW_FILE.csv` | [activelives.sportengland.org](https://activelives.sportengland.org/) | downloaded |
 | `Google_Trends_Over_Time.csv` | [trends.google.com](https://trends.google.com) | pytrends API |
 | `Gym_Location_RAW_FILE.xlsx` | Individual gym websites | Manually compiled |
 |`TYPES_OF_ACTIVITY_RAW_FILE.xlsx`|  [sportengland.org](https://www.sportengland.org/research-and-data/data/active-lives/active-lives-data-tables) | downloaded
