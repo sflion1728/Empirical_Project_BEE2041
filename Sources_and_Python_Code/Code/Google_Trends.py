@@ -52,7 +52,7 @@ for i in Key_Words:
         else:
             Trends_df = pd.concat([Trends_df,individual_word] , axis=1)
     
-    time.sleep(12)
+    time.sleep(15)
     
 
 

@@ -18,7 +18,7 @@
 ## About
 This project will look to analyse the boom in climbing, looking at different factors and digging deeper to see what has caused a rise in popularity of the sport. 
 
-Using data sources listed in the  [Data Sources](#data-sources) section, we will use python to analyse and produce some insightful outputs that will be analysed 
+Using data sources listed in the  [Data Sources](#data-sources--references) section, we will use python to analyse and produce some insightful outputs that will be analysed 
 in detail on the GitHub Pages site.
 
 

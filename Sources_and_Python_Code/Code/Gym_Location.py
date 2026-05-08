@@ -38,7 +38,7 @@ print('NaN values: ' + str(gyms.isnull().sum().sum()))
 # FILTER DATA
 ##############################################################################
 
-all_years = range(1991, 2026)
+all_years = range(1989, 2026)
  
 bouldering = gyms[gyms['type'] == 'bouldering'].groupby('opening_year').size().reindex(all_years, fill_value=0).cumsum()
 both       = gyms[gyms['type'] == 'both'].groupby('opening_year').size().reindex(all_years, fill_value=0).cumsum()
