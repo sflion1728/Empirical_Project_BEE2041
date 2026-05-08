@@ -114,11 +114,11 @@ python3 Sources_and_Python_Code/Code/Google_Trends.py
 time.sleep(15)
 ```
 
- In the code. The `csv` file produced from this code is included in the folder in case it does not run.**
+ In the code. The `csv` file produced from this code is included in the folder in case it does not run.
 
 
 
-You may run these .py files listed below in whatever order you wish.
+You may run these `.py` files listed below in whatever order you wish.
 ```bash
 # 2 
 
@@ -166,7 +166,7 @@ These outputs are stored in `Empirical Project/Sources_and_Python_Code/Plots` fo
 
 | Chart | File | Description |
 |---|---|---|
-| 1 | `Area_Chart.png` | UK gym openings 1995–2025 |
+| 1 | `Area_Chart.png` | UK gym openings 1989–2025 |
 | 2 | `Sports_Plot_2015.png` | % change in participation since 2015 |
 | 3 | `interactive_age.html` | Participation index by age group (Base = 100) |
 | 4 | `Heatmap_Regions.png` | Regional participation index 2015–2024 |
