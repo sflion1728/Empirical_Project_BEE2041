@@ -355,8 +355,8 @@ img {
 .infobox {
     background: var(--bg-2);
     border-left: 3px solid var(--accent);
-    padding: 1.4rem 1.5rem;
-    margin: 2rem 0;
+    padding: 0.6rem 1.5rem;
+    margin: 0.7rem 0;
 }
 
 .infobox-title {
@@ -371,7 +371,7 @@ img {
 
 .infobox-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 }
 
@@ -487,6 +487,9 @@ figcaption strong {
     line-height: 1.75 !important;
     margin-bottom: 0 !important;
 }
+.conclusion-box p + p {
+    margin-top: 1rem;
+}
 
 .conclusion-box strong {
     color: #e8a8a8;
@@ -549,6 +552,38 @@ figcaption strong {
     color: var(--text-muted) !important;
     line-height: 1.75 !important;
     margin-bottom: 0 !important;
+}
+
+.quote-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1rem 0 2rem;
+}
+
+.quote-box {
+    background: var(--bg-2);
+    border-left: 3px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+}
+
+.quote-text {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
+}
+
+.quote-source {
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent) !important;
+    margin: 0;
 }
 /* ===========================
    RESPONSIVE

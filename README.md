@@ -11,7 +11,7 @@
 - [How to Run](#how-to-run)
 - [Outputs](#outputs)
 - [Advanced modelling technique](#advanced-modelling-technique)
-- [Data Sources](#data-sources)
+- [Data Sources & References](#data-sources--references)
 
 ---
 
@@ -182,14 +182,22 @@ The advance modelling technique used will be a simple regression.
 
 This model will look to explain if a causal relationship between Google trend searchs between bouldering and climbing participants existed. 
 
+---
+## Data Sources & References
 
-## Data Sources
-
-
-| Dataset | Source | Method |
+### Datasets
+| Files | Source | Method |
 |---|---|---|
 | `ActiveLivesDataExport_Regions_RAW_FILE.xlsx` | [sportengland.org](https://activelives.sportengland.org/) | downloaded |
 | `Age_Climbing_RAW_FILE.csv` | [sportengland.org](https://activelives.sportengland.org/) | downloaded |
 | `Google_Trends_Over_Time.csv` | [trends.google.com](https://trends.google.com) | pytrends API |
 | `Gym_Location_RAW_FILE.xlsx` | Individual gym websites | Manually compiled |
 |`TYPES_OF_ACTIVITY_RAW_FILE.xlsx`|  [sportengland.org](https://www.sportengland.org/research-and-data/data/active-lives/active-lives-data-tables) | downloaded
+
+
+**NOTE: `Gym_Location_RAW_FILE.xlsx` has a list of all climbing gyms and their sources in the excel file**
+###
+
+### References (Used in site) 
+* Ball, E. (2026, February 15). Indoor climbing becoming “mainstream” sport, says Shrewsbury gym. BBC News. https://www.bbc.co.uk/news/articles/c309pnpj5m9o
+* Roberts, G. (2025, January 10). Why does everyone suddenly want to rock climb? - The Oxford Blue. The Oxford Blue; OxBlue. https://theoxfordblue.co.uk/why-does-everyone-suddenly-want-to-rock-climb/
